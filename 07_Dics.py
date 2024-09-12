@@ -1,3 +1,4 @@
+#El dict nos sirve para acceder mas facil a datos mediante el par clave-valor
 my_dict = dict()
 my_other_dict = {}
 

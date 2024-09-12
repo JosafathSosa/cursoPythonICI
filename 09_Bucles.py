@@ -1,9 +1,10 @@
 #While
 #For
-#Do while
+#Python no cuenta con do - while
+
+#Git: https://github.com/JosafathSosa/cursoPythonICI
 
 mi_condicion = 0
-
 while mi_condicion <= 20:
     print(mi_condicion)
     #mi_condicion = mi_condicion + 1
@@ -25,6 +26,7 @@ my_dict = {
     }
 }
 
+#Imprime el valor del valor1 del subdiccionario lenguajes
 for key in my_dict["Lenguajes"]:
     print(my_dict["Lenguajes"]["Valor1"])
     break

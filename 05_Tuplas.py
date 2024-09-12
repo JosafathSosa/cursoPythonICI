@@ -1,3 +1,4 @@
+#Los elementos de la tupla NO se pueden modificar, ni agregar ni quitar
 my_tuple = tuple()
 my_other_tuple = ()
 

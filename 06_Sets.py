@@ -1,3 +1,4 @@
+#Los elementos del set no se pueden repetir
 my_set = set()
 my_other_set= {}
 
