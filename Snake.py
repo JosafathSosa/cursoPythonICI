@@ -93,5 +93,21 @@ while True:
     delay = 0.1
     sc.clear()
     sc.write("Score {} High Score: {} ".format(score, high_score), align="center", font=("Courier", 24, "normal"))
-    
+
+    if head.distance(food) < 20:
+        # Mueve la comida a una nueva posición aleatoria
+        x = random.randint(-290, 290)
+        y = random.randint(-290, 290)
+        food.goto(x, y)
+
+         # Agrega un nuevo segmento al cuerpo de la serpiente
+        new_segment = turtle.Turtle()
+        new_segment.speed(0)
+        new_segment.shape("square")
+        new_segment.color("yellow")
+        new_segment.penup()
+        segments.append(new_segment)
+
+        
+
 wn.mainloop()
