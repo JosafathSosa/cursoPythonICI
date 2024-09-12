@@ -108,6 +108,15 @@ while True:
         new_segment.penup()
         segments.append(new_segment)
 
-        
+        if delay > 0.5:
+            delay += 0.001
+
+        #Aumenta la puntuacion
+        score += 10
+        if score > high_score:
+            high_score = score
+        #Actualiza el marcado cuando colisiona con la comida
+        sc.clear()
+        sc.write("Score {} High Score {} ".format(score, high_score), align="center", font=("Courier", 24, "normal"))
 
 wn.mainloop()
