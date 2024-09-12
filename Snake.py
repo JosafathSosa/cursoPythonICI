@@ -73,6 +73,10 @@ def move():
 
 #Controles de teclado
 wn.listen()
+wn.onkeypress(Up, "Up") # Cuando se presiona la tecla 'arriba', llama a la función 'Up'.
+wn.onkeypress(Down, "Down")
+wn.onkeypress(Right, "Right")
+wn.onkeypress(Left, "Left")
 
 
 wn.mainloop()
