@@ -190,6 +190,23 @@ while True:
 
     move()  # Llama a la función para mover la cabeza.
 
+    for segment in segments:
+        if(segment.distance(head) < 20):
+            time.sleep(1)
+            head.goto(0,0)
+            head.direction = "stop"
+
+            #Muve los segmentos fuera de la pantalla
+            for segment in segments:
+                segment.goto(1000, 1000)
+
+            segments.clear()
+
+            #Restable la puntuacion y la velocidad del juego
+            score = 0
+            delay = 0.1
+            sc.write("Score: {} High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal"))
+
     time.sleep(delay)  # Pausa el juego por el tiempo de retraso definido.
 
 
