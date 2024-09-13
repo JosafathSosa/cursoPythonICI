@@ -2,7 +2,6 @@ import turtle  # Importa el módulo 'turtle' para crear gráficos simples.
 import time  # Importa el módulo 'time' para manejar retrasos.
 import random  # Importa el módulo 'random' para generar posiciones aleatorias.
 
-# Configuración de la pantalla del juego
 wn = turtle.Screen()  # Crea la pantalla del juego.
 wn.title("Snake Game by ICI")  # Establece el título de la ventana.
 wn.bgcolor("darkgreen")  # Cambia el color de fondo de la ventana a verde oscuro.
@@ -21,7 +20,7 @@ high_score = 0  # Puntuación más alta.
 head = turtle.Turtle()  # Crea el objeto para la cabeza de la serpiente.
 head.speed(0)  # Establece la velocidad de animación de la cabeza.
 head.shape("square")  # Establece la forma de la cabeza como un cuadrado.
-head.color("yellow")  # Cambia el color de la cabeza a amarillo.
+head.color("red")  # Cambia el color de la cabeza a amarillo.
 head.penup()  # Desactiva el dibujo de líneas al moverse.
 head.goto(0, 0)  # Coloca la cabeza en el centro de la pantalla.
 head.direction = (
@@ -86,16 +85,16 @@ def Left():
 def move():
     if head.direction == "up":  # Si la dirección es 'arriba':
         y = head.ycor()  # Obtiene la coordenada Y actual de la cabeza.
-        head.sety(y + 20)  # Mueve la cabeza 20 píxeles hacia arriba.
+        head.sety(y + 25)  # Mueve la cabeza 20 píxeles hacia arriba.
     if head.direction == "down":  # Si la dirección es 'abajo':
         y = head.ycor()  # Obtiene la coordenada Y actual.
-        head.sety(y - 20)  # Mueve la cabeza 20 píxeles hacia abajo.
+        head.sety(y - 25)  # Mueve la cabeza 20 píxeles hacia abajo.
     if head.direction == "right":  # Si la dirección es 'derecha':
         x = head.xcor()  # Obtiene la coordenada X actual.
-        head.setx(x + 20)  # Mueve la cabeza 20 píxeles hacia la derecha.
+        head.setx(x + 25)  # Mueve la cabeza 20 píxeles hacia la derecha.
     if head.direction == "left":  # Si la dirección es 'izquierda':
         x = head.xcor()  # Obtiene la coordenada X actual.
-        head.setx(x - 20)  # Mueve la cabeza 20 píxeles hacia la izquierda.
+        head.setx(x - 25)  # Mueve la cabeza 20 píxeles hacia la izquierda.
 
 
 # Controles de teclado
@@ -173,6 +172,25 @@ while True:
             align="center",
             font=("Courier", 24, "normal"),
         )
+
+    #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
+    # Mover los segmentos del cuerpo
+    for i in range(
+        len(segments) - 1, 0, -1
+    ):  # Desde el último segmento hasta el primero:
+        x = segments[i - 1].xcor()  # Obtiene la posición del segmento anterior.
+        y = segments[i - 1].ycor()
+        segments[i].goto(x, y)  # Mueve el segmento actual a la posición del anterior.
+
+    # Mueve el primer segmento al lugar de la cabeza
+    if len(segments) > 0:
+        x = head.xcor()
+        y = head.ycor()
+        segments[0].goto(x, y)
+
+    move()  # Llama a la función para mover la cabeza.
+
+    time.sleep(delay)  # Pausa el juego por el tiempo de retraso definido.
 
 
 wn.mainloop()
