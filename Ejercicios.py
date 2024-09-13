@@ -24,3 +24,26 @@ def contar_vocales(palabra):
     print(f"Hay {contador} vocales en : {palabra}")
 
 contar_vocales("hola")
+
+
+# La serie de Fibonacci es una secuencia de números donde cada número (a partir del tercero) es la suma de los dos números anteriores.
+# Comienza con los números 0 y 1.
+# Luego sigue: 0, 1, 1, 2, 3, 5, 8, 13...
+# Ejemplo:
+
+# Los primeros dos números de la serie son 0 y 1.
+# El tercer número es la suma de 0 y 1, que es 1.
+# El cuarto número es la suma de 1 y 1, que es 2.
+# El quinto número es la suma de 1 y 2, que es 3.
+# Así que la secuencia es: 0, 1, 1, 2, 3, 5, 8, 13, 21,...
+
+def fibonacci(n):
+    fib_sequence = [0, 1]  # Comenzamos con 0 y 1
+    for i in range(2, n):
+        siguiente = fib_sequence[i-1] + fib_sequence[i-2]  # Suma de los dos anteriores
+        fib_sequence.append(siguiente)  # Lo agregamos a la lista
+    return fib_sequence[:n]
+
+# Prueba:
+n = 15
+print(fibonacci(n))
